@@ -45,12 +45,14 @@ while True:
     if (input_state == False):
         aldOpen = isOpen
         isOpen = GPIO.input(MAGNETICDOORSWITCH3V3_PIN_SIG)
-        if (isOpen and (isOpen == aldOpen)):
+        if (isOpen and (isOpen != aldOpen)):
             GPIO.output(LEDG_PIN_VIN , False)
             GPIO.output(LEDR_PIN_VIN , True)
-        elif (isOpen == aldOpen):
+            print ("Door is LOCK")
+        elif (isOpen != aldOpen):
             GPIO.output(LEDR_PIN_VIN , False)
             GPIO.output(LEDG_PIN_VIN , True)
+            print ("Door is UNLOCK")
     elif (input_state == True):
         print("Push button is pressed!, door unlcok")
         GPIO.output(LEDG_PIN_VIN , True)
