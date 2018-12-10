@@ -5,7 +5,7 @@ import signal
 GPIO.setmode(GPIO.BCM)
 
 # Define Pins
-PULLPUSHSOLENOID_PIN_SIG = 27
+PULLPUSHSOLENOID_PIN_SIG = 13
 LEDG_PIN_VIN = 18
 LEDR_PIN_VIN = 12
 MAGNETICDOORSWITCH3V3_PIN_SIG = 4
@@ -48,17 +48,17 @@ while True:
         aldOpen = isOpen
         isOpen = GPIO.input(MAGNETICDOORSWITCH3V3_PIN_SIG)
         if (isOpen and (isOpen != aldOpen)):
-            GPIO.output(PULLPUSHSOLENOID_PIN_SIG , GPIO.HIGH)
-            GPIO.output(LEDR_PIN_VIN , False)
-            GPIO.output(LEDG_PIN_VIN , True)
-            print ("Door is UNLOCK")
-        elif (isOpen != aldOpen):
-            GPIO.output(PULLPUSHSOLENOID_PIN_SIG , GPIO.LOW)
-            GPIO.output(LEDG_PIN_VIN , False)
+            GPIO.output(PULLPUSHSOLENOID_PIN_SIG , True)
             GPIO.output(LEDR_PIN_VIN , True)
+            GPIO.output(LEDG_PIN_VIN , False)
             print ("Door is LOCK")
+        elif (isOpen != aldOpen):
+            GPIO.output(PULLPUSHSOLENOID_PIN_SIG , False)
+            GPIO.output(LEDG_PIN_VIN , True)
+            GPIO.output(LEDR_PIN_VIN , False)
+            print ("Door is UNLOCK")
     elif (input_state == True):
-        GPIO.output(PULLPUSHSOLENOID_PIN_SIG , GPIO.HIGH)
+        GPIO.output(PULLPUSHSOLENOID_PIN_SIG , True)
         GPIO.output(LEDG_PIN_VIN , True)
         GPIO.output(LEDR_PIN_VIN , False)
         print("Push button is pressed!, door unlcoked")
