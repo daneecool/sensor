@@ -8,6 +8,7 @@ GPIO.setmode(GPIO.BCM)
 LEDG_PIN_VIN = 18
 LEDR_PIN_VIN = 12
 MAGNETICDOORSWITCH3V3_PIN_SIG = 4
+PULLPUSHSOLENOID_PIN_SIG = 13
 
 # Initially we don't know if the door sensor is open or closed...
 isOpen = None
