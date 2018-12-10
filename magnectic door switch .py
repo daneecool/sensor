@@ -40,9 +40,11 @@ while True:
     if (isOpen and (isOpen != aldOpen)):  
         print("Open!")  
         GPIO.output(LEDR_PIN_VIN , True)  
-        GPIO.output(LEDG_PIN_VIN , False) 
+        GPIO.output(LEDG_PIN_VIN , False)
+        GPIO.output(PULLPUSHSOLENOID_PIN_SIG , False)
     elif (isOpen != aldOpen):  
         print("Lock!")  
         GPIO.output(LEDG_PIN_VIN , True)  
         GPIO.output(LEDR_PIN_VIN , False)  
+        GPIO.output(PULLPUSHSOLENOID_PIN_SIG , False)
     time.sleep(0.1)
