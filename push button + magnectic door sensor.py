@@ -59,7 +59,7 @@ while True:
             GPIO.output(LEDG_PIN_VIN , True)
             print ("Door is UNLOCK")
     elif (input_state == True):
-        print("Push button is pressed!, door unlcok")
+        print("EXIT")
         GPIO.output(PULLPUSHSOLENOID_PIN_SIG , True)
         GPIO.output(LEDG_PIN_VIN , True)
         GPIO.output(LEDR_PIN_VIN , False)
