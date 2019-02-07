@@ -26,10 +26,6 @@ GPIO.setup(PULLPUSHSOLENOID_PIN_SIG , GPIO.OUT , initial=GPIO.LOW)
 GPIO.setup(MAGNETICDOORSWITCH3V3_PIN_SIG , GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(PUSHBUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-# Set up the light pins.
-GPIO.setup(LEDR_PIN_VIN , GPIO.OUT)
-GPIO.setup(LEDG_PIN_VIN , GPIO.OUT) 
-
 # Make sure all lights are off.
 GPIO.output(LEDR_PIN_VIN , False)
 GPIO.output(LEDG_PIN_VIN , False)
